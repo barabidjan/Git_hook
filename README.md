@@ -45,17 +45,7 @@ $ gitleaks detect --source . --verbose
     ○ ░
     ░    gitleaks
 
-Finding:     key: "35bde2bb875a7ad294146787d5409dd4e5b7ab51"
-Secret:      35bde2bb875a7ad294146787d5409dd4e5b7ab51
-RuleID:      telegram-bot-api-token
-Entropy:     4.637586
-File:        helm/values.yaml
-Line:        15
-Commit:      35bde2bb875a7ad294146787d5409dd4e5b7ab51
-Author:      Vitalii Umanets
-Email:       vit@i.ua
-Date:        2023-12-26T21:02:37Z
-Fingerprint: 35bde2bb875a7ad294146787d5409dd4e5b7ab51:helm/values.yaml:telegram-bot-api-token:15
+
 
 11:09PM INF 100 commits scanned.
 11:09PM INF scan completed in 4.02s
@@ -67,7 +57,7 @@ Fingerprint: 35bde2bb875a7ad294146787d5409dd4e5b7ab51:helm/values.yaml:telegram-
 $ sudo apt-get install pre-commit
 
 $ pre-commit --version
-pre-commit 2.17.0
+pre-commit 3.6.2
 
 $ touch .pre-commit-config.yaml
 
