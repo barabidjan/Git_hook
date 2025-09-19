@@ -2,21 +2,20 @@
 Створення скрипту для git pre-commit hook з використанням gitleaks для перевірки наявності секретів у коді.
 
     Клонуємо репозиторій готуємо нову гілку:
-
+```sh
 $ git clone https://github.com/barabidjan/kbot.git
 $ git checkout -b Taskhook
 $ git tag git_hook
 $ git push origin git_hook
 $ git push --set-upstream origin Task18
+```
+2. Для зручної роботи з провідником в VSCode відкриємо видимість каталогу .git
+- Тиснемо `Ctrl+,`
+- В пошук вводимо: `Search: Exclude`
+- Видаляємо `**/.git`
 
-    Для зручної роботи з провідником в VSCode відкриємо видимість каталогу .git
-
-    Тиснемо Ctrl+,
-    В пошук вводимо: Search: Exclude
-    Видаляємо **/.git
-
-    Для початку встановимо gitleaks локально та перевіримо його роботу.
-
+3. Для початку встановимо [gitleaks](https://github.com/gitleaks/gitleaks) локально та перевіримо його роботу.
+```sh
 $ cd ~
 $ git clone https://github.com/gitleaks/gitleaks.git
 $ cd gitleaks
@@ -36,7 +35,7 @@ $ gitleaks detect --source . --log-opts="--all"
 
 $ nano helm/values.yaml
 $ git add .
-$ git commit -m "add secret"
+$ git commit -m"add secret"
 
 $ gitleaks detect --source . --verbose
 
@@ -61,9 +60,10 @@ Fingerprint: 35bde2bb875a7ad294146787d5409dd4e5b7ab51:helm/values.yaml:telegram-
 11:09PM INF 100 commits scanned.
 11:09PM INF scan completed in 4.02s
 11:09PM WRN leaks found: 1
+```
 
-    Встановимо пакет pre-commit
-
+4. Встановимо пакет [pre-commit](https://pre-commit.com/#install)
+```sh
 $ sudo apt-get install pre-commit
 
 $ pre-commit --version
@@ -80,21 +80,20 @@ Fix End of Files.........................................................Failed
 Trim Trailing Whitespace.................................................Failed
 
 $ git add .
-$ git commit -m "test"
+$ git commit -m"test"
 Check Yaml...............................................................Failed
-
-    Як це працює зрозуміло, тепер реалізуємо перевірку репозиторію gitleaks
-
-    Додаємо у файл .pre-commit-config.yaml наступний код:
-
+```
+5. Як це працює зрозуміло, тепер реалізуємо перевірку репозиторію [gitleaks](https://github.com/gitleaks/gitleaks?tab=readme-ov-file#pre-commit) 
+- Додаємо у файл `.pre-commit-config.yaml` наступний код:
+```yaml
 repos:
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.16.1
     hooks:
       - id: gitleaks
-
-    Перевіряємо роботу в zsh:
-
+```
+- Перевіряємо роботу в zsh:
+```sh
 $ pre-commit autoupdate
 $ pre-commit install
 $ git add .
@@ -113,8 +112,8 @@ Detect hardcoded secrets.................................................Passed
 
 ➜ SKIP=gitleaks git commit -m "skip gitleaks check"
 Detect hardcoded secrets................................................Skipped
+```
 
-    На доопрацювання:
-
-    Реалізований pre-commit hook скрипт з автоматичним встановленням gitleaks залежно від операційної системи, з опцією enable за допомогою git config
-    Реалізований pre-commit hook скрипт з автоматичним встановленням gitleaks залежно від операційної системи, з опцією enable за допомогою git config та інсталяцією за методом “curl pipe sh” (задача делегована junior та middle інженерам)
+6. На доопрацювання:
+- Реалізований pre-commit hook скрипт з автоматичним встановленням gitleaks залежно від операційної системи, з опцією enable за допомогою git config 
+- Реалізований pre-commit hook скрипт з автоматичним встановленням gitleaks залежно від операційної системи, з опцією enable за допомогою git config та інсталяцією за методом “curl pipe sh” (задача делегована junior та middle інженерам)
