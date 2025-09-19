@@ -78,7 +78,7 @@ Check Yaml...............................................................Failed
 ```yaml
 repos:
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.16.1
+    rev: v8.24.2
     hooks:
       - id: gitleaks
 ```
@@ -104,6 +104,4 @@ Detect hardcoded secrets.................................................Passed
 Detect hardcoded secrets................................................Skipped
 ```
 
-6. На доопрацювання:
-- Реалізований pre-commit hook скрипт з автоматичним встановленням gitleaks залежно від операційної системи, з опцією enable за допомогою git config 
-- Реалізований pre-commit hook скрипт з автоматичним встановленням gitleaks залежно від операційної системи, з опцією enable за допомогою git config та інсталяцією за методом “curl pipe sh” (задача делегована junior та middle інженерам)
+
