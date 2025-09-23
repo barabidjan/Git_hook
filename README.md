@@ -103,3 +103,5 @@ Detect hardcoded secrets.................................................Passed
 ➜ SKIP=gitleaks git commit -m "skip gitleaks check"
 Detect hardcoded secrets................................................Skipped
 ```
+
+Допрацювати
