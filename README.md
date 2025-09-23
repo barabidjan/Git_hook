@@ -7,7 +7,7 @@ $ git clone https://github.com/barabidjan/kbot.git
 $ git checkout -b Taskhook
 $ git tag git_hook
 $ git push origin git_hook
-$ git push --set-upstream origin Task18
+$ git push --set-upstream origin Taskhook
 ```
 2. Для зручної роботи з провідником в VSCode відкриємо видимість каталогу .git
 - Тиснемо `Ctrl+,`
