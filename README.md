@@ -73,7 +73,7 @@ $ git add .
 $ git commit -m"test"
 Check Yaml...............................................................Failed
 ```
-5. Як це працює зрозуміло, тепер реалізуємо перевірку репозиторію [gitleaks](https://github.com/gitleaks/gitleaks?tab=readme-ov-file#pre-commit) 
+5. Як це працює зрозуміло, тепер реалізуємо перевірку репозиторію [gitleaks](https://github.com/gitleaks/gitleaks?tab=readme-ov-file#pre-commit)
 - Додаємо у файл `.pre-commit-config.yaml` наступний код:
 ```yaml
 repos:
@@ -103,5 +103,3 @@ Detect hardcoded secrets.................................................Passed
 ➜ SKIP=gitleaks git commit -m "skip gitleaks check"
 Detect hardcoded secrets................................................Skipped
 ```
-
-
